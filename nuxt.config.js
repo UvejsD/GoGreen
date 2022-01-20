@@ -61,7 +61,14 @@ export default {
           info: colors.teal.lighten1,
           warning: colors.amber.base,
           error: colors.deepOrange.accent4,
-          success: colors.green.accent3
+          success: colors.green.accent3,
+          text_green: "#172601",
+          text_green_light: "#3E5902",
+          text_white: "#ffffff",
+          text_yellow: "#ECF22E",
+          green: "#64944c",
+          green_light: "#77A612",
+          yellow: "EDF2C2"
         }
       }
     }
