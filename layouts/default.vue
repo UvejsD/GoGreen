@@ -1,88 +1,41 @@
 <template>
   <v-app dark>
-    <v-navigation-drawer
-      v-model="drawer"
-      :mini-variant="miniVariant"
-      :clipped="clipped"
-      fixed
-      app
-    >
-      <v-list>
-        <v-list-item
-          v-for="(item, i) in items"
-          :key="i"
-          :to="item.to"
-          router
-          exact
-        >
-          <v-list-item-action>
-            <v-icon>{{ item.icon }}</v-icon>
-          </v-list-item-action>
-          <v-list-item-content>
-            <v-list-item-title v-text="item.title" />
-          </v-list-item-content>
-        </v-list-item>
-      </v-list>
-    </v-navigation-drawer>
-    <v-app-bar
-      :clipped-left="clipped"
-      fixed
-      app
-    >
-      <v-app-bar-nav-icon @click.stop="drawer = !drawer" />
-      <v-btn
-        icon
-        @click.stop="miniVariant = !miniVariant"
-      >
-        <v-icon>mdi-{{ `chevron-${miniVariant ? 'right' : 'left'}` }}</v-icon>
-      </v-btn>
-      <v-btn
-        icon
-        @click.stop="clipped = !clipped"
-      >
-        <v-icon>mdi-application</v-icon>
-      </v-btn>
-      <v-btn
-        icon
-        @click.stop="fixed = !fixed"
-      >
-        <v-icon>mdi-minus</v-icon>
-      </v-btn>
-      <v-toolbar-title v-text="title" />
+    <!-- This is html code for header.-->
+    <v-app-bar app flat absolute class="transparent green--text">
+      <v-toolbar-title>
+        <v-img :src="logo" max-width="50px" max-height="50px"></v-img>
+      </v-toolbar-title>
+
       <v-spacer />
-      <v-btn
-        icon
-        @click.stop="rightDrawer = !rightDrawer"
-      >
-        <v-icon>mdi-menu</v-icon>
-      </v-btn>
+
+      <v-toolbar-items>
+        <v-layout align-center>
+          <v-flex>
+            <v-btn
+              v-for="link in links"
+              :key="link"
+              height="100%"
+              class="font-weight-bold rounded-pill mx-1 py-1 px-2 transparent"
+              :to="link.to"
+            >
+              <span class="white--text font-weight-light">
+                {{ link.name }}
+              </span>
+            </v-btn>
+          </v-flex>
+        </v-layout>
+      </v-toolbar-items>
     </v-app-bar>
+
+    <!-- This is html code for main-->
     <v-main>
       <v-container>
         <Nuxt />
       </v-container>
     </v-main>
-    <v-navigation-drawer
-      v-model="rightDrawer"
-      :right="right"
-      temporary
-      fixed
-    >
-      <v-list>
-        <v-list-item @click.native="right = !right">
-          <v-list-item-action>
-            <v-icon light>
-              mdi-repeat
-            </v-icon>
-          </v-list-item-action>
-          <v-list-item-title>Switch drawer (click me)</v-list-item-title>
-        </v-list-item>
-      </v-list>
-    </v-navigation-drawer>
-    <v-footer
-      :absolute="!fixed"
-      app
-    >
+
+    <!-- This is html code for footer-->
+    <v-footer :absolute="!fixed" app>
       <span>&copy; {{ new Date().getFullYear() }}</span>
     </v-footer>
   </v-app>
@@ -90,29 +43,37 @@
 
 <script>
 export default {
-  name: 'DefaultLayout',
-  data () {
-    return {
-      clipped: false,
-      drawer: false,
-      fixed: false,
-      items: [
-        {
-          icon: 'mdi-apps',
-          title: 'Welcome',
-          to: '/'
-        },
-        {
-          icon: 'mdi-chart-bubble',
-          title: 'Inspire',
-          to: '/inspire'
-        }
-      ],
-      miniVariant: false,
-      right: true,
-      rightDrawer: false,
-      title: 'Vuetify.js'
+  name: "DefaultLayout",
+
+  data: () => ({
+    logo: "/logo.png",
+    links: [
+      { name: "Home", to: "/" },
+      { name: "Knowledge Hub", to: "/Knowledge" },
+      { name: "Donations", to: "/FindADoctor" },
+      { name: "Petitions", to: "/Covid-19" },
+      { name: "Emissions", to: "/ContactUs" },
+    ],
+  }),
+};
+</script>
+
+<style lang="scss" scope>
+@import "assets/variables";
+
+.v-app-bar .v-toolbar__items {
+  .v-btn {
+    box-shadow: none;
+    text-transform: none;
+    .v-ripple__container {
+      opacity: 0 !important;
+    }
+    &::before {
+      opacity: 0 !important;
+    }
+    &--active span {
+      font-weight: bold !important;
     }
   }
 }
-</script>
+</style>
