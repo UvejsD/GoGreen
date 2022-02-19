@@ -1,0 +1,76 @@
+ 
+body{
+    font-family: 'Titillium Web', sans-serif;
+    margin: 0;
+    padding: 0;
+    
+ }
+ 
+.navbar{
+    width: 95%;
+   height: 592px;
+   background-image: url("img/donateback.png");
+   background-position: center;
+   background-size: cover; 
+   position: relative;
+   padding: 0 40px; 
+   margin: 0 px;
+   border: 0 px;
+   
+}
+    
+.navbar a {
+    font-family: 'Titillium Web', sans-serif;
+    font-size: 30pt;
+    float: right;
+    color: #ffffff;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 17px;
+}
+
+.select{
+    font-size: 50px;
+    text-align: center;
+    color: #3E5902;
+    align-items: center;
+    font-family: 'Titillium Web', sans-serif;
+    
+    
+
+}
+
+.box1, .box2, .box3, .box4{
+    height: 235px;
+    width: 281px;
+    box-shadow: 2px black solid ;
+    display: inline-block;
+    background-color: #EDF2C2;
+    box-shadow: 5px 10px  grey ;
+    text-align: center;
+    margin: 5px;
+
+}
+
+.other {
+    text-align: center;
+    color: #3E5902;
+    font-size: 35px;
+    font-family: 'Titillium Web', sans-serif; 
+}
+
+input{
+
+    height: 40px;
+    background-color: #EDF2C2;
+    border-radius: 10px;
+    
+    
+}
+
+label {
+    margin-bottom: 10px;
+}
+
+
