@@ -1,4 +1,7 @@
-
+body {
+    margin: 0;
+    padding: 0;
+}
 
 .don{
     font-weight: bold;
@@ -8,7 +11,7 @@
 .navbar{
    height: 500px;
    width: 100%;
-   background-image: url("/img/donateback.png");
+   background-image: url("../img/donateback.png");
    background-position: center;
    background-size: cover; 
    margin: 0 px;
