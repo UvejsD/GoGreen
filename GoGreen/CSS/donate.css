@@ -9,7 +9,7 @@ body{
 .navbar{
     width: 95%;
    height: 592px;
-   background-image: url("img/donateback.png");
+   background-image: url("/GoGreen/img/donateback.png");
    background-position: center;
    background-size: cover; 
    position: relative;
